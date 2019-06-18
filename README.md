@@ -7,6 +7,7 @@ We will be creating an interactive dashboard which visualizes data on AirBnb lis
 https://public.opendatasoft.com/explore/dataset/air-bnb-listings/table/?disjunctive.neighbourhood&disjunctive.column_10&disjunctive.city
 
 # Inspiration
+![Inspo](https://github.com/FeLowe/NW-Bootcamp-Project2_Data_Visualization/blob/master/Images/Inspiration.png "Inspiration")
 
 # Design
 ![Initial Design Sketch](https://github.com/FeLowe/NW-Bootcamp-Project2_Data_Visualization/blob/master/Images/Image%20from%20iOS.jpg "Initial Design Sketch")
