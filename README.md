@@ -9,7 +9,7 @@ https://public.opendatasoft.com/explore/dataset/air-bnb-listings/table/?disjunct
 # Inspiration
 
 # Design
-![Initial Design Sketch](/Images/Image\ from\ iOS.jpg "Initial Design Sketch")
+![Initial Design Sketch](https://github.com/FeLowe/NW-Bootcamp-Project2_Data_Visualization/blob/master/Images/Image%20from%20iOS.jpg "Initial Design Sketch")
 
 # GitHub Link
 https://github.com/FeLowe/NW-Bootcamp-Project2_Data_Visualization/
