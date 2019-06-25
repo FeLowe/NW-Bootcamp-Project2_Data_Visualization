@@ -10,7 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Whimsy08@localhost/airbnb_data'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:sinkybay@localhost/airbnb_data'
 db = SQLAlchemy(app)
 
 class Listings(db.Model):
@@ -24,10 +24,19 @@ class Listings(db.Model):
     Latitude = db.Column(db.Float)
     Longitude = db.Column(db.Float)
     Selection = db.Column(db.String(64))
+    Distance = db.Column(db.Float)
 
 
     def __repr__(self):
         return '<Listing %r>' % (self.Room_Id)
+
+class Selection(db.Model):
+    __tablename__ = 'cities'
+
+    Selection = db.Column(db.String(255), primary_key=True)
+
+    def __repr__(self):
+        return '<Selection %r>' % (self.Selection)
 
 
 # create route that renders index.html template
@@ -54,7 +63,7 @@ def home():
 
 @app.route("/api/listings")
 def rooms():
-    results = db.session.query(Listings.Price, Listings.Room_Id, Listings.Room_Type, Listings.City, Listings.Country, Listings.Latitude, Listings.Longitude, Listings.Selection).all()
+    results = db.session.query(Listings.Price, Listings.Room_Id, Listings.Room_Type, Listings.City, Listings.Country, Listings.Latitude, Listings.Longitude, Listings.Selection, Listings.Distance).all()
     listings_data = []
 
     for result in results:
@@ -66,6 +75,7 @@ def rooms():
         lat = result[5]
         lon = result[6]
         selection = result[7]
+        distance = result[8]
 
 
         result_data = {
@@ -77,7 +87,7 @@ def rooms():
             "lat": lat,
             "lon": lon,
             "selection": selection,
-            
+            "distance": distance
         }
 
 
@@ -112,6 +122,12 @@ def rooms():
 
     return jsonify(listings_data)
     
+@app.route("/api/selection")
+def cities():
+    results = db.session.query(Selection.Selection).all()
+    cities_data = [ {"selection" : result[0]} for result in results]
+    
+    return jsonify(cities_data)
 
 
 if __name__ == "__main__":

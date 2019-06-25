@@ -24,6 +24,7 @@ class Listings(db.Model):
     Latitude = db.Column(db.Float)
     Longitude = db.Column(db.Float)
     Selection = db.Column(db.String(64))
+    Distance = db.Column(db.Float)
 
 
     def __repr__(self):
@@ -62,7 +63,7 @@ def home():
 
 @app.route("/api/listings")
 def rooms():
-    results = db.session.query(Listings.Price, Listings.Room_Id, Listings.Room_Type, Listings.City, Listings.Country, Listings.Latitude, Listings.Longitude, Listings.Selection).all()
+    results = db.session.query(Listings.Price, Listings.Room_Id, Listings.Room_Type, Listings.City, Listings.Country, Listings.Latitude, Listings.Longitude, Listings.Selection, Listings.Distance).all()
     listings_data = []
 
     for result in results:
@@ -74,6 +75,7 @@ def rooms():
         lat = result[5]
         lon = result[6]
         selection = result[7]
+        distance = result[8]
 
 
         result_data = {
@@ -85,7 +87,7 @@ def rooms():
             "lat": lat,
             "lon": lon,
             "selection": selection,
-            
+            "distance": distance
         }
 
 
@@ -123,8 +125,9 @@ def rooms():
 @app.route("/api/selection")
 def cities():
     results = db.session.query(Selection.Selection).all()
-    cities_data = [ {"selection" : result[0]} for result in results]
-    
+    print(results)
+    cities_data = [val for sublist in results for val in sublist]
+
     return jsonify(cities_data)
 
 

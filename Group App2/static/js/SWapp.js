@@ -1,3 +1,47 @@
+// load data
+d3.json("/api/listings", function(error, data) {
+    if(error) throw error;
+ 
+    //parse data
+    data.forEach(function(d) {
+        d.room_type = +d.room_type;
+        d.selection = +d.selection;
+
+        // if (d.room_type === "Entire home/apt") {
+        //     entirePlace += entirePlace;
+            
+        // }
+        // else if (d.room_type === "Shared room") {
+        //     sharedPlace += sharedPlace;
+            
+        // }
+        // else {
+        //     privatePlace += privatePlace;
+            // -------------------------------------------------
+        // }
+        // var data_count = d3.nest()
+        // .key(function(d) {
+        //     return d.room_type;
+        //   })
+        //   // .key(function(d) { return d.priority; })
+        //   .rollup(function(leaves) {
+        //     return leaves.length;
+        //   })
+        //   .entries(data);
+     
+        // data_count.forEach(function(element) {
+        //   console.log(element);
+        
+    });
+    var total = data.reduce(function(count, entry) {
+        return count + (entry.room_type === 'Entire home/apt' ? 1 : 0);
+     }, 0);
+
+    // });
+    console.log(total)
+ });
+
+
 Highcharts.chart('container', {
 
     chart: {
@@ -42,7 +86,7 @@ Highcharts.chart('container', {
 
     series: [{
         name: 'Number of Rooms',
-        data: [43000, 19000, 60000],
+        data: [40, 90, 300],
         pointPlacement: 'on'
     }],
 
