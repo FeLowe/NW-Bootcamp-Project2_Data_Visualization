@@ -29,6 +29,14 @@ class Listings(db.Model):
     def __repr__(self):
         return '<Listing %r>' % (self.Room_Id)
 
+class Selection(db.Model):
+    __tablename__ = 'cities'
+
+    Selection = db.Column(db.String(255), primary_key=True)
+
+    def __repr__(self):
+        return '<Selection %r>' % (self.Selection)
+
 
 # create route that renders index.html template
 @app.route("/")
@@ -112,6 +120,12 @@ def rooms():
 
     return jsonify(listings_data)
     
+@app.route("/api/selection")
+def cities():
+    results = db.session.query(Selection.Selection).all()
+    cities_data = [ {"selection" : result[0]} for result in results]
+    
+    return jsonify(cities_data)
 
 
 if __name__ == "__main__":
