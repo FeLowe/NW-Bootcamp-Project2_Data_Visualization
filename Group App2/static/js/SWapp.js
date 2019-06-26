@@ -31,14 +31,14 @@ d3.json("/api/listings", function(error, data) {
      
         // data_count.forEach(function(element) {
         //   console.log(element);
-        
+        var total = data.reduce(function(count, entry) {
+            return count + (entry.room_type === 'Entire home/apt' ? 1 : 0);
+         }, 0);
+    
+        // });
+        console.log(total)
     });
-    var total = data.reduce(function(count, entry) {
-        return count + (entry.room_type === 'Entire home/apt' ? 1 : 0);
-     }, 0);
 
-    // });
-    console.log(total)
  });
 
 
