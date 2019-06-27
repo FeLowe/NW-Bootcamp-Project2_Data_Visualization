@@ -99,7 +99,7 @@
 // @TODO: YOUR CODE HERE!
 
 // set margins
-var svgWidth = 800;
+var svgWidth = 500;
 var svgHeight = 500;
 
 var margin = {
@@ -157,7 +157,7 @@ var yValue = function(d) { return d.price;},
 // setup toolTip
 var toolTip = d3.tip()
     .attr("class", "d3-tip")
-    .html(function(d) { return d["room_type"] + "<br> price: " + xValue(d) + "<br> distance: " + yValue(d)});
+    .html(function(d) { return d["room_type"] + "<br> distance: " + xValue(d) + "<br> price: " + yValue(d)});
 
 xLinearScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
 yLinearScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
