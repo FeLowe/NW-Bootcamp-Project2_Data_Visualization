@@ -99,7 +99,7 @@
 // @TODO: YOUR CODE HERE!
 
 // set margins
-var svgWidth = 800;
+var svgWidth = 500;
 var svgHeight = 500;
 
 var margin = {
@@ -130,6 +130,7 @@ d3.json("api/listings", function(error, data) {
         d.distance = +d.distance;
         d.price = +d.price;
         d.room_id = +d.room_id;
+        // d.room_type = +d.room_type;
     });
 
 // d3.csv("static/data.csv", function(error, data) {
@@ -156,7 +157,7 @@ var yValue = function(d) { return d.price;},
 // setup toolTip
 var toolTip = d3.tip()
     .attr("class", "d3-tip")
-    .html(function(d) { return d["room_id"] + "<br> price: " + xValue(d) + "<br> distance: " + yValue(d)});
+    .html(function(d) { return d["room_type"] + "<br> distance: " + xValue(d) + "<br> price: " + yValue(d)});
 
 xLinearScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
 yLinearScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
@@ -196,7 +197,16 @@ chartGroup.selectAll("circle")
     .attr("cx", xMap)
     .attr("cy", yMap)
     .attr("r", 10)
-    .style("fill", "blue")
+    .style("fill", function(d,i){
+        console.log(d);
+        console.log(i);
+        if (d.room_type === "Entire home/apt")
+            return "blue";
+        else if (d.room_type === "Private room")   
+            return "orange";
+        else 
+            return "green"; 
+    })
     .style("opacity", ".5")
     .on("mouseover", toolTip.show)
     .on("mouseout", toolTip.hide);
