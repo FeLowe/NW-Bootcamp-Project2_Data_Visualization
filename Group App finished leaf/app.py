@@ -1,4 +1,5 @@
 # import necessary libraries
+from flask_cors import CORS
 import os
 from flask import (
     Flask,
@@ -9,7 +10,11 @@ from flask import (
 from flask_sqlalchemy import SQLAlchemy
 
 
+
+
+
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Whimsy08@localhost/airbnb_data'
 db = SQLAlchemy(app)
 
@@ -37,6 +42,7 @@ class Selection(db.Model):
 
     def __repr__(self):
         return '<Selection %r>' % (self.Selection)
+
 
 
 # create route that renders index.html template
@@ -121,7 +127,11 @@ def rooms():
 
 
     return jsonify(listings_data)
-    
+
+@app.route("/map")
+def map():
+    return render_template("Leafmap.html")
+
 @app.route("/api/selection")
 def cities():
     results = db.session.query(Selection.Selection).all()
@@ -132,3 +142,5 @@ def cities():
 
 if __name__ == "__main__":
     app.run()
+
+

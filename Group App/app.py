@@ -125,8 +125,9 @@ def rooms():
 @app.route("/api/selection")
 def cities():
     results = db.session.query(Selection.Selection).all()
-    cities_data = [ {"selection" : result[0]} for result in results]
-    
+    print(results)
+    cities_data = [val for sublist in results for val in sublist]
+
     return jsonify(cities_data)
 
 
