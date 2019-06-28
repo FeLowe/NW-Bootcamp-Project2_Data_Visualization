@@ -135,6 +135,7 @@ def map():
 @app.route("/api/selection")
 def cities():
     results = db.session.query(Selection.Selection).all()
+    print(results)
     cities_data = [ {"selection" : result[0]} for result in results]
     
     return jsonify(cities_data)

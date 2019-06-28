@@ -34,3 +34,12 @@ th {
 	font-weight: 600;
     padding: 10px;
 }
+
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #00A699;
+    color: white
+;
+
+}
+

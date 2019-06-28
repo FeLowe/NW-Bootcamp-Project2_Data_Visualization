@@ -30,7 +30,7 @@ function buildScatter(param){
     var chartGroup = svg.append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    console.log(`buildScatter used ${param}`);
+    //console.log(`buildScatter used ${param}`);
 
 
     // load data
@@ -41,12 +41,12 @@ function buildScatter(param){
             var filteredData = data;
         } else {
             filteredData = data.filter(function(datum) {
-                console.log(datum.selection);   
+                //console.log(datum.selection);   
                 return datum.selection == param;
             });
         }
 
-        console.log(filteredData);
+        //console.log(filteredData);
 
         //parse data
         filteredData.forEach(function(d) {
