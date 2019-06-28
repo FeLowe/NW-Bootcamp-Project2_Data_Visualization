@@ -1,5 +1,3 @@
-// @TODO: YOUR CODE HERE!
-
 // set margins
 var svgWidth = 500;
 var svgHeight = 500;
@@ -34,15 +32,6 @@ d3.json("api/listings", function(error, data) {
         d.room_id = +d.room_id;
         // d.room_type = +d.room_type;
     });
-
-// d3.csv("static/data.csv", function(error, data) {
-//         if(error) throw error;
-    
-//         //parse data
-//         data.forEach(function(d) {
-//             d.distance = +d.distance;
-//             d.price = +d.price;
-//         });
 
 // setup x
 var xValue = function(d) { return d.distance;},
