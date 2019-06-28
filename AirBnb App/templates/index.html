@@ -55,7 +55,7 @@
           <div class="col-md-12">
             <div class="well">
               <h5>Please choose the city you'd like to explore:</h5>
-              <select id="selDataset" onchange="optionChanged(this.value); buildSpider(this.value)"></select>
+              <select id="selDataset" onchange="optionChanged(this.value)"></select>
             </div>
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -71,10 +71,10 @@
     <div class="row">
         <div class="col-md-5">
           <div class="grow" id="container"></div>
+          <script src="static/js/SWapp.js"></script>
         </div>
 
         <div class="col-md-2">
-           <!-- <script src="static/js/SWapp.js"></script> -->
         </div>
 
     <!--scatter-->
@@ -106,7 +106,6 @@
   <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="static/js/SWapp.js"></script>
   <script  src="{{ url_for('static', filename='js/selection.js') }}"></script>
 
 </body>

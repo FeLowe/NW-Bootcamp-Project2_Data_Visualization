@@ -45,17 +45,17 @@ function init() {
     });
 
     // Use the first sample from the list to build the initial plots
-    // const defaultChoice = "All Cities";
+      const defaultChoice = "All Cities";
     // buildCharts(firstChoice);
     // buildMetadata(firstChoice);
     // buildPlot(defaultChoice);
-    // buildSpider(defaultChoice);
+      buildSpider(defaultChoice);
   });
 }
 
 function optionChanged(newChoice) {
   // Fetch new data each time a new sample is suildPlot(newChoice);
-  buildPlot(newChoice);
+  buildSpider(newChoice);
   console.log(`The option changed to ${newChoice}` )
 }
 
