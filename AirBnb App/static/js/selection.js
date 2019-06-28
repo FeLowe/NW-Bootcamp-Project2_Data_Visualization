@@ -49,6 +49,7 @@ function init() {
     // testStuff(defaultChoice);
       buildSpider(defaultChoice);
       buildScatter(defaultChoice);
+      buildMap(defaultChoice);
   });
 }
 
@@ -56,6 +57,7 @@ function optionChanged(newChoice) {
   // Fetch new data each time a new sample is suildPlot(newChoice);
   buildSpider(newChoice);
   buildScatter(newChoice);
+  buildMap(newChoice);
   console.log(`The option changed to ${newChoice}` )
 }
 

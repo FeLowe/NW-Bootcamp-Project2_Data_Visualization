@@ -39,6 +39,10 @@ class Selection(db.Model):
     __tablename__ = 'cities'
 
     Selection = db.Column(db.String(255), primary_key=True)
+    Number_of_Listings = db.Column(db.String(255), primary_key=True)
+    Perc_of_Listings = db.Column(db.String(255), primary_key=True)
+    Avg_Price = db.Column(db.String(255), primary_key=True)
+
 
     def __repr__(self):
         return '<Selection %r>' % (self.Selection)
@@ -134,10 +138,27 @@ def map():
 
 @app.route("/api/selection")
 def cities():
-    results = db.session.query(Selection.Selection).all()
+    results = db.session.query(Selection.Selection, Selection.Number_of_Listings, Selection.Perc_of_Listings, Selection.Avg_Price).all()
     print(results)
-    cities_data = [ {"selection" : result[0]} for result in results]
-    
+    cities_data = ["All Cities"]
+
+    for result in results:
+        selection = result[0] 
+        number_of_listings = result[1] 
+        perc_of_listings = result[2] 
+        avg_price = result[3] 
+
+
+        result_data = {
+            "selection": selection,
+            "number_of_listings": number_of_listings,
+            "perc_of_listings": perc_of_listings,
+            "avg_price": avg_price,
+        }
+
+
+        cities_data.append(result_data)
+
     return jsonify(cities_data)
 
 

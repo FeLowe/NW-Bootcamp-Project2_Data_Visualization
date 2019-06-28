@@ -12,9 +12,9 @@ function buildMap(param){
   //console.log("heres our api", url);
 
   // Grab the data with d3
-  d3.json(url, function(response) {
+  d3.json(url).then(function(response) {
 
-    console.log(response[0]);
+    //console.log(response[0]);
 
     if (param == "All Cities") {
       var filteredData = response;
@@ -26,6 +26,7 @@ function buildMap(param){
           return datum.selection == param;
       });
       
+      //console.log(filteredData);
       filteredCenter = [filteredData[0].lat, filteredData[0].lon];
       filteredZoom = 8;
       
@@ -74,4 +75,4 @@ function buildMap(param){
 
 }
 
-buildMap("Lisbon, Portugal");
+//buildMap("Rome, Italy");
