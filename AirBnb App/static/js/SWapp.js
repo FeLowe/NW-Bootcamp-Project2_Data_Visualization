@@ -6,11 +6,11 @@ function buildSpider(param){
     var sharedPlace = 0;
     var privatePlace = 0;
 
-    console.log(`buildSpider used ${param}`);
+    //console.log(`buildSpider used ${param}`);
 
     d3.json("/api/listings").then(function(data) {
         //if(error) throw error;
-        console.log("the data is fetching");
+        //console.log("the data is fetching");
 
         if (param == "All Cities"){
             var filteredData = data;
@@ -21,7 +21,7 @@ function buildSpider(param){
               });
         };
         
-        console.log(filteredData);
+        //console.log(filteredData);
 
         //parse data
         filteredData.forEach(function(d) {

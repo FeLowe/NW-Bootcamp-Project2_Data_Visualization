@@ -1,6 +1,6 @@
 console.log("selection.js is loaded");
 
-// function buildPlot(selection) {
+// function testStuff(selection) {
 
 //   // append svg and group
 //   // var svg = d3.select("#scatter")
@@ -46,16 +46,16 @@ function init() {
 
     // Use the first sample from the list to build the initial plots
       const defaultChoice = "All Cities";
-    // buildCharts(firstChoice);
-    // buildMetadata(firstChoice);
-    // buildPlot(defaultChoice);
+    // testStuff(defaultChoice);
       buildSpider(defaultChoice);
+      buildScatter(defaultChoice);
   });
 }
 
 function optionChanged(newChoice) {
   // Fetch new data each time a new sample is suildPlot(newChoice);
   buildSpider(newChoice);
+  buildScatter(newChoice);
   console.log(`The option changed to ${newChoice}` )
 }
 
