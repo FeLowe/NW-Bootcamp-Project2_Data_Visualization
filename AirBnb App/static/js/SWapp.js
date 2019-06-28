@@ -41,26 +41,7 @@ function buildSpider(selection){
             // console.log("Private");
 
         }
-            // -------------------------------------------------
-        // }
-        // var data_count = d3.nest()
-        // .key(function(d) {
-        //     return d.room_type;
-        //   })
-        //   // .key(function(d) { return d.priority; })
-        //   .rollup(function(leaves) {
-        //     return leaves.length;
-        //   })
-        //   .entries(data);
-     
-        // data_count.forEach(function(element) {
-        //   console.log(element);
-        // var total = data.reduce(function(count, entry) {
-        //     return count + (entry.room_type === 'Entire home/apt' ? 1 : 0);
-        //  }, 0);
-    
-        // });
-        // console.log(total)
+
     });
   
     Highcharts.chart('container', {
