@@ -14,6 +14,10 @@ var margin = {
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
+function buildScatter(selection){
+
+
+
 // append svg and group
 var svg = d3.select("#scatter")
     .append("svg")
@@ -27,8 +31,17 @@ var chartGroup = svg.append("g")
 d3.json("api/listings", function(error, data) {
     if(error) throw error;
 
+    if (selection == "All Cities") {
+         var filteredData = data;
+    } else {
+        filteredData = data.filter(function(datum) {
+            console.log(datum[7]);   
+            return datum[7] == selection;
+        });
+    }
+
     //parse data
-    data.forEach(function(d) {
+    filteredData.forEach(function(d) {
         d.distance = +d.distance;
         d.price = +d.price;
         d.room_id = +d.room_id;
@@ -100,8 +113,8 @@ chartGroup.selectAll("circle")
     .attr("cy", yMap)
     .attr("r", 10)
     .style("fill", function(d,i){
-        console.log(d);
-        console.log(i);
+        //console.log(d);
+        //console.log(i);
         if (d.room_type === "Entire home/apt")
             return "blue";
         else if (d.room_type === "Private room")   
@@ -114,4 +127,23 @@ chartGroup.selectAll("circle")
     .on("mouseout", toolTip.hide);
 
 });
+
+}
+
+function init() {
+      // Use "all cities" to build the initial plots
+      const defaultChoice = "All Cities";
+      console.log("The scatter is not filtered")
+      buildScatter(defaultChoice);
+    
+    };
+  
+//   function optionChanged(newChoice) {
+//     // Fetch new data each time a new sample is selected
+//     console.log(`the scatter is filtered by ${newChoice}`)
+//     buildScatter(newChoice);
+//   }
+  
+  // Initialize the dashboard
+  init();
 

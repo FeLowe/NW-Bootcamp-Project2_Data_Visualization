@@ -44,36 +44,71 @@
 </head>
 
 <body>
-    <!--leaflet-->
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 jumbotron text-center">
+            <h1>Welcome to the AirBnb Dashboard</h1>
+            <p>Use the interactive charts below to explore the dataset</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="well">
+              <h5>Please choose the city you'd like to explore:</h5>
+              <select id="selDataset" onchange="optionChanged(this.value)"></select>
+            </div>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">City Information</h3>
+              </div>
+              <div id="sample-metadata" class="panel-body"></div>
+            </div>
+          </div>
+        </div>
+      
+
+    <!--spiderweb chart-->
+    <div class="row">
+        <div class="col-md-5">
+          <div class="grow" id="container"></div>
+          <script src="static/js/SWapp.js"></script>
+        </div>
+
+        <div class="col-md-2">
+            <div class="grow" id="container"></div>
+            <script src="static/js/SWapp.js"></script>
+          </div>
+
+    <!--scatter-->
+      
+        <div class="col-md-5">
+          <div class='grow' id="scatter"></div>
+          <script type="text/javascript" src="static/js/scatterapp.js"></script>
+        </div>
+      </div> 
     
-    <div style="height: 100%; " class="row">
-      <div style="height: 100%;" class="col-xs-12  col-md-9">
-  <div style="height: 100%; " id="map"></div>
-  <script type="text/javascript" src="static/js/Leafconfig.js"></script>
-  <script type="text/javascript" src="static/js/Leaflogic.js"></script>
+    
     </div>
-  </div>
+    <div></br></div>
+      <!--leaflet-->
+    <div style="height: 100%; " class="row">
+        <div style="height: 100%;" class="col-md-12">
+          <div style="height: 100%; " id="map"></div>
+            <script type="text/javascript" src="static/js/Leafconfig.js"></script>
+            <script type="text/javascript" src="static/js/Leaflogic.js"></script>
+        </div>
+      </div>
 
-<!--spiderweb chart-->
-<div class="grow" id="container"></div>
-<script src="static/js/SWapp.js"></script>
-
-<!--scatter-->
-<!-- <div class="row">
-  <div class="col-xs-12  col-md-9"> -->
-    <div class='grow' id="scatter"></div>
-    <script type="text/javascript" src="static/js/scatterapp.js"></script>
-      <!-- We append our chart here. -->
     
-  <!-- </div>
-</div> -->
+
+
 
 
 
   <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script  src="{{ url_for('static', filename='js/map.js') }}"></script>
+  <script  src="{{ url_for('static', filename='js/selection.js') }}"></script>
 
 </body>
 

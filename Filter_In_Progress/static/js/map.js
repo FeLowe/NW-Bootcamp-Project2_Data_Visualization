@@ -14,6 +14,7 @@ function buildPlot(selection) {
   // if the default selection is chosen (no filter)
   if (selection = "All Cities") {
 
+    console.log("Here I am\n Rock me like a hurricane");
     // Plotly attempt
     // var url = "/api/listings";
     // d3.json(url).then(function(response) {
@@ -80,36 +81,36 @@ function buildPlot(selection) {
     // });
     
     // Leaflet attempt
-    // Create a map object
-    var myMap = L.map("map", {
-      center: [15.5994, -28.6731],
-      zoom: 3
-    });
+    // // Create a map object
+    // var myMap = L.map("map", {
+    //   center: [15.5994, -28.6731],
+    //   zoom: 3
+    // });
 
-    L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-      attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-      maxZoom: 18,
-      id: "mapbox.streets-basic",
-      accessToken: "pk.eyJ1Ijoia3VsaW5pIiwiYSI6ImNpeWN6bjJ0NjAwcGYzMnJzOWdoNXNqbnEifQ.jEzGgLAwQnZCv9rA6UTfxQ"
-    }).addTo(myMap);
+    // L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+    //   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+    //   maxZoom: 18,
+    //   id: "mapbox.streets-basic",
+    //   accessToken: "pk.eyJ1Ijoia3VsaW5pIiwiYSI6ImNpeWN6bjJ0NjAwcGYzMnJzOWdoNXNqbnEifQ.jEzGgLAwQnZCv9rA6UTfxQ"
+    // }).addTo(myMap);
 
-    // Country data
-    var url = "/api/listings";
-    d3.json(url).then(function(response) {
+    // // Country data
+    // var url = "/api/listings";
+    // d3.json(url).then(function(response) {
   
-      // Loop through the cities array and create one marker for each listing
-      for (var i = 0; i < response.length; i++) {
+    //   // Loop through the cities array and create one marker for each listing
+    //   for (var i = 0; i < response.length; i++) {
 
-        // Add circles to map
-        L.circle([response[i].lat, response[i].lon], {
-          fillOpacity: 0.75,
-          color: "white",
-          fillColor: color,
-          // Adjust radius
-          radius: 500
-        }).bindPopup("<h1>" + response[i].room_id + "</h1>").addTo(myMap);
-      };
-    })
+    //     // Add circles to map
+    //     L.circle([response[i].lat, response[i].lon], {
+    //       fillOpacity: 0.75,
+    //       color: "white",
+    //       fillColor: color,
+    //       // Adjust radius
+    //       radius: 500
+    //     }).bindPopup("<h1>" + response[i].room_id + "</h1>").addTo(myMap);
+    //   };
+    // })
   };
 }
   

@@ -15,7 +15,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Whimsy08@localhost/airbnb_data'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:helpme01@localhost/airbnb_data'
 db = SQLAlchemy(app)
 
 class Listings(db.Model):

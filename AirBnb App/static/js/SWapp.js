@@ -2,30 +2,43 @@ var entirePlace = 0;
 var sharedPlace = 0;
 var privatePlace = 0;
 
+function buildSpider(selection){
 // load data
-d3.json("/api/listings", function(error, data) {
-    if(error) throw error;
+ d3.json("/api/listings" ,function(data) {
+    //if(error) throw error;
 
+    //filter by selection
+    if (selection != "All Cities"){
+
+        var filteredData = data.filter(function(datum) {
+            console.log(datum[7]);   
+            return datum[7] == selection;
+        });
+
+        console.log(filteredData);
+    } else {
+        filteredData = data;
+    }
     
 
     //parse data
-    data.forEach(function(d) {
+    filteredData.forEach(function(d) {
         // d.room_type = +d.room_type;
         // d.selection = +d.selection;
 
         if (d.room_type == "Entire home/apt") {
-            console.log("Entire");
+            // console.log("Entire");
             entirePlace += 1;
             
         }
         else if (d.room_type == "Shared room") {
             sharedPlace += 1;
-            console.log("Shared");
+            // console.log("Shared");
             
         }
         else {
             privatePlace += 1;
-            console.log("Private");
+            // console.log("Private");
 
         }
             // -------------------------------------------------
@@ -116,9 +129,39 @@ d3.json("/api/listings", function(error, data) {
         }
     
     });
-    console.log("This is entire place",entirePlace);
-    console.log("this is shared place",sharedPlace);
-    console.log("this is private place",privatePlace);
+    //console.log("This is entire place",entirePlace);
+    //console.log("this is shared place",sharedPlace);
+    //console.log("this is private place",privatePlace);
  });
 
+}
 
+// function init() {
+//     // Grab a reference to the dropdown select element
+//     var selector = d3.select("#selDataset");
+  
+//     // Use the list of sample names to populate the select options
+//     d3.json("/api/selection", (selection) => {
+//       selection.forEach((choice) => {
+//         console.log(choice.selection);
+//         selector
+//           .append("option")
+//           .text(choice.selection)
+//           .property("value", choice.selection);
+//       });
+  
+//       // Use the first sample from the list to build the initial plots
+//       const defaultChoice = "All Cities";
+//       // buildCharts(firstChoice);
+//       // buildMetadata(firstChoice);
+//       buildSpider(defaultChoice);
+//     });
+//   }
+  
+//   function optionChanged(newChoice) {
+//     // Fetch new data each time a new sample is selected
+//     buildSpider(newChoice);
+//   }
+  
+//   // Initialize the dashboard
+buildSpider("All Cities");

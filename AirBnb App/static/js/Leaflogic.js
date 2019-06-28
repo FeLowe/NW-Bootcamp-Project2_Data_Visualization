@@ -18,12 +18,12 @@ var apiListings = "/api/listings";
 
 // Assemble API query URL
 var url = baseURL + apiListings;
-console.log("heres our api", url);
+//console.log("heres our api", url);
 
 // Grab the data with d3
 d3.json(url, function(error, response) {
-  console.log("error: ", error);
-  console.log("response: ", response);
+  //console.log("error: ", error);
+  //console.log("response: ", response);
 
   // Create a new marker cluster group
   var markers = L.markerClusterGroup();
@@ -38,7 +38,7 @@ d3.json(url, function(error, response) {
     if (location) {
 
       // Add a new marker to the cluster group and bind a pop-up
-      console.log('hello about to create mark!!!', response[i]);
+      //console.log('hello about to create mark!!!', response[i]);
       markers.addLayer(L.marker([response[i].lat, response[i].lon])
         .bindPopup(response[i].room_id));
     }
@@ -46,7 +46,7 @@ d3.json(url, function(error, response) {
   }
 
   // Add our marker cluster layer to the map
-  console.log('about to add markers to the mpa!!', markers);
+  //console.log('about to add markers to the mpa!!', markers);
   myMap.addLayer(markers);
 
 });
