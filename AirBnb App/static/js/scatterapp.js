@@ -107,9 +107,9 @@ chartGroup.selectAll("circle")
         if (d.room_type === "Entire home/apt")
             return "blue";
         else if (d.room_type === "Private room")   
-            return "orange";
+            return "pink";
         else 
-            return "green"; 
+            return "blue"; 
     })
     .style("opacity", ".5")
     .on("mouseover", toolTip.show)

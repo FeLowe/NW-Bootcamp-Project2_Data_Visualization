@@ -1,33 +1,35 @@
-console.log("I am working");
+console.log("selection.js is loaded");
 
-function buildPlot(selection) {
+// function buildPlot(selection) {
 
-  // append svg and group
-  // var svg = d3.select("#scatter")
-  // .append("svg")
-  // .attr("height", svgHeight)
-  // .attr("width", svgWidth);
+//   // append svg and group
+//   // var svg = d3.select("#scatter")
+//   // .append("svg")
+//   // .attr("height", svgHeight)
+//   // .attr("width", svgWidth);
 
-  // var chartGroup = svg.append("g")
-  // .attr("transform", `translate(${margin.left}, ${margin.top})`);
+//   // var chartGroup = svg.append("g")
+//   // .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+//   //console.log(selection)
   
-  d3.json("api/listings").then(function(error,data) {
-    if(error) throw error;
+//   d3.json("api/listings").then(function(data) {
+//     //if(error) throw error;
 
-        filteredData = data.filter(function(datum) {
-            console.log(datum[7]);   
-            return datum[7] == selection;
-        });
+//     //console.log(data);
+
+//     filteredData = data.filter(function(datum) {
+//       //console.log(datum.selection);   
+//       return datum.selection == selection;
+//     });
     
   
-  console.log(filteredData);
+//   console.log(filteredData);
 
-});
+// });
 
-}
+// }
 
-
-  
 
 function init() {
   // Grab a reference to the dropdown select element
@@ -43,10 +45,11 @@ function init() {
     });
 
     // Use the first sample from the list to build the initial plots
-    const defaultChoice = "New-orleans, United states";
+    // const defaultChoice = "All Cities";
     // buildCharts(firstChoice);
     // buildMetadata(firstChoice);
-    buildPlot(defaultChoice);
+    // buildPlot(defaultChoice);
+    // buildSpider(defaultChoice);
   });
 }
 
