@@ -48,10 +48,11 @@
         <div class="row">
           <div class="col-md-12 jumbotron text-center"  style="background-color:transparent !important;">
             <h1>Welcome to the AirBnb Dashboard</h1>
-            <p>Use the interactive charts below to explore the dataset</p>
+            <p>Use the interactive charts below to interact with the listings data</p>
           </div>
         </div>
-        <span class="border-top my-3" style="background-color:#FF5A5F !important;"></span>
+        <div style="background-color:#FF5A5F !important;"></div></br></div>
+        <div></div></br></div>
         <div class="row">
           <div class="col-md-12">
             <div class="well">
@@ -67,11 +68,15 @@
             </div>
           </div>
         </div>
-      
+    <!--spacing to make room for .grow-->
+    <div><br></div>
+    <div><br></div>
+    <div><br></div>
+    <div><br></div>
 
     <!--spiderweb chart-->
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5" height='500px'>
           <div class="grow" id="container"></div>
           <script src="static/js/SWapp.js"></script>
         </div>
@@ -81,7 +86,7 @@
 
     <!--scatter-->
       
-        <div class="col-md-5">
+        <div class="col-md-5" height="800px">
           <div class='grow' id="scatter"></div>
           <script type="text/javascript" src="static/js/scatterapp.js"></script>
         </div>
