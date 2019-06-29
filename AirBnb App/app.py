@@ -140,7 +140,7 @@ def map():
 def cities():
     results = db.session.query(Selection.Selection, Selection.Number_of_Listings, Selection.Perc_of_Listings, Selection.Avg_Price).all()
     print(results)
-    cities_data = ["All Cities"]
+    cities_data = [ {"selection":"All Cities"}]
 
     for result in results:
         selection = result[0] 

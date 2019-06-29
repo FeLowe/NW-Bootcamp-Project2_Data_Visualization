@@ -1,6 +1,16 @@
+var myMap;
+          
+      myMap = L.map("map", {
+        center: [0,0],
+        zoom: 2
+      });
+
+  var markers;
+
 function buildMap(param){
 
   console.log("Leaflogic.js is loaded");
+  
 
   
   // Store API query variables
@@ -23,10 +33,10 @@ function buildMap(param){
     } else {
       filteredData = response.filter(function(datum) {
           //console.log(datum.selection);   
-          return datum.selection == param;
+          return datum.selection === param;
       });
       
-      //console.log(filteredData);
+      console.log(filteredData);
       filteredCenter = [filteredData[0].lat, filteredData[0].lon];
       filteredZoom = 8;
       
@@ -34,10 +44,6 @@ function buildMap(param){
 
 
     // Creating map object
-    var myMap = L.map("map", {
-      center: filteredCenter,
-      zoom: filteredZoom
-    });
 
     // Adding tile layer to the map
     L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -48,7 +54,8 @@ function buildMap(param){
     }).addTo(myMap);
 
     // Create a new marker cluster group
-    var markers = L.markerClusterGroup();
+    var markers = L.markerClusterGroup();    
+    
 
     // Loop through data
     for (var i = 0; i < filteredData.length; i++) {

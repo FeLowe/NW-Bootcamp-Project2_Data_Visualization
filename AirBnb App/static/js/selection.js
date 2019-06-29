@@ -50,6 +50,7 @@ function init() {
       buildSpider(defaultChoice);
       buildScatter(defaultChoice);
       buildMap(defaultChoice);
+      buildSummary(defaultChoice);
   });
 }
 
@@ -58,6 +59,7 @@ function optionChanged(newChoice) {
   buildSpider(newChoice);
   buildScatter(newChoice);
   buildMap(newChoice);
+  buildSummary(newChoice);
   console.log(`The option changed to ${newChoice}` )
 }
 
